@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
+import Sidebar from "./components/sidebar/Sidebar";
 
 export type TowerRecord = {
   id: string;
@@ -184,35 +184,7 @@ export default function TowerDashboard({
 
   return (
     <div className="dashboard-shell">
-      <aside className="sidebar ">
-        <div className="brand" aria-label="Si Tower beranda">
-          <span className="brand-icon">
-            <Icon name="tower" size={23} />
-          </span>
-          <span>
-            <strong>SI TOWER</strong>
-            <small>MITRATEL OPERATIONS</small>
-          </span>
-        </div>
-
-        <div className="nav-section-label">MENU UTAMA</div>
-        <nav className="sidebar-nav" aria-label="Navigasi utama">
-          <a className="nav-item" href="#ringkasan">
-            <Icon name="grid" />
-            <span>Ringkasan</span>
-          </a>
-          <a className="nav-item active" href="#data-tower" aria-current="page">
-            <Icon name="database" />
-            <span>Data Tower</span>
-            <span className="nav-count">{records.length}</span>
-          </a>
-        </nav>
-
-        <div className="sidebar-bottom">
-        
-          <div className="sidebar-footer">SI Tower · Area 3</div>
-        </div>
-      </aside>
+      <Sidebar recordCount={records.length} />
 
       <main className="main-panel">
         <header className="topbar">
